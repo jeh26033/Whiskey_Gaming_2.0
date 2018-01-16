@@ -7,6 +7,8 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+
+
 gem 'rails', '~> 5.1.4'
 gem 'omniauth-steam'
 gem 'omniauth', '~> 1.8', '>= 1.8.1'
@@ -35,7 +37,7 @@ gem 'nodejs-rails', '~> 0.0.1'
 gem 'better_errors'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'rollbar'
 group :development, :test do
    gem 'sqlite3', '1.3.13'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
