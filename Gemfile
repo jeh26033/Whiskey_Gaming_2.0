@@ -8,6 +8,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
+gem 'omniauth-steam'
 gem 'omniauth', '~> 1.8', '>= 1.8.1'
 gem 'sprockets-rails', '~> 2.3.2'
 gem 'jquery-rails'
