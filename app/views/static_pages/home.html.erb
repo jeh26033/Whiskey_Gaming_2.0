@@ -1,3 +1,10 @@
 <% provide(:title, "Home")%>
+<% if current_user %>
+	<%= current_user.nickname %>
+<% else %>
+	<h2>no one is logged in</h2>
+<% end %>
+
 <h1>StaticPages#home</h1>
+
 <p>Find me in app/views/static_pages/home.html.erb</p>
