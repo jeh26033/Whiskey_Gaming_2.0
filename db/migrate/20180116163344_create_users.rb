@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :nickname
       t.string :avatar_url
       t.string :profile_url
-	  add_index :users, :uid, unique: true
+	  
       t.timestamps
     end
   end
