@@ -1,10 +1,13 @@
 <% provide(:title, "Home")%>
-<% if current_user %>
-	<%= current_user.nickname %>
-<% else %>
-	<h2>no one is logged in</h2>
-<% end %>
+<div class="container">
+	<% if current_user %>
+		<p> Welcome, <%= current_user.nickname %>! </p>
+	<% else %>
+		<h2>Be sure to log in! </h2>
+		<h3 class="nav-item"><%= link_to 'Log In via Steam', '/auth/steam' %> </h3>
+	<% end %>
 
-<h1>StaticPages#home</h1>
+	<h1>StaticPages#home</h1>
 
-<p>Find me in app/views/static_pages/home.html.erb</p>
+	<p>Find me in app/views/static_pages/home.html.erb</p>
+</div>

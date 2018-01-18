@@ -38,6 +38,10 @@ gem 'better_errors'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'rollbar'
+gem 'will_paginate', '3.1.6'
+gem 'will_paginate-bootstrap'
+gem 'faker', '1.7.3'
+ 
 group :development, :test do
    gem 'sqlite3', '1.3.13'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -57,5 +61,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
   gem 'pg', '0.18.4'
-  
+
 end

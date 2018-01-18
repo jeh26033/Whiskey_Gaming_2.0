@@ -14,9 +14,50 @@
  *= require_self
  */
 @import "bootstrap";
-
+@import 'will_paginate-bootstrap'
 nav {
-  img {
-    max-width: 48px;
-  }
+ 
 }
+
+.devborder{
+	border: 1px solid black;
+}
+
+
+.content{
+	margin-top: 100px;
+}
+
+.label{
+	margin: 10px;
+	padding:20px;
+}
+
+.users-list{
+	list-style: none;
+}
+
+.index-profile{
+	margin: 20px;
+	font-size: 1.5em;
+	font-weight: bolder;
+}
+
+.index-profile a{
+	padding-left: 1%;
+}
+
+.index-profile a:hover{
+	text-decoration: none;
+
+}
+
+#user-nickname{
+	font-size: 1.4em;
+	font-weight: bolder;
+}
+
+footer{
+	margin-top: 10%;
+}
+

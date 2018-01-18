@@ -1,0 +1,24 @@
+<% user_title = @user.nickname %>
+
+<% provide(:title, user_title)%>
+<div class="container">
+	<div class="content profile devborder">	
+		<% if current_user %>
+
+			<div class='profile_thumb'>
+				<%= image_tag(@user.avatar_url) %>
+				<span id="user-nickname"><%= @user.nickname %></span>
+			</div>
+
+			<h4 class="label devborder" >Team</h4>
+			
+			<h4 class="label devborder" >Discord name</h4>
+				<!-- discord name here -->
+			<h4 class="label devborder"> <a href=" <%= @user.profile_url %>"> <%= @user.nickname %>'s Steam profile </a> </h4>
+
+		<% else %>
+			<h2>Be sure to log in! </h2>
+			<h3 class="nav-item"><%= link_to 'Log In via Steam', '/auth/steam' %> </h3></h2>
+		<% end %>
+	</div> <!-- profile div -->
+</div> <!-- container -->

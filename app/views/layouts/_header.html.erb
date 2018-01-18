@@ -35,20 +35,27 @@
 	        <a class="nav-link" <%=link_to 'Members', members_path %></a>
 	      </li>
 
+</ul>
+
+  </div>
+	</nav>
 	      <% if current_user %>
-	        <ul class="nav navbar-nav pull-right">
-	          <li class="nav-item"><%= image_tag current_user.avatar_url, alt: current_user.nickname %></li>
-	          <li class="nav-item"><%= link_to 'Log Out', logout_path, method: :delete %></li>
-	        </ul>
+
+ 			<h6>Welcome, <%= current_user.nickname %> | <%= link_to 'Log Out', logout_path, method: :delete %> |
+ 			 </h6>
+	         
+	       
+
+	      
+
 	      <% else %>
-	        <ul class="nav navbar-nav">
+	     
 	          <li class="nav-item"><%= link_to 'Log In via Steam', '/auth/steam' %></li>
-	        </ul>
+	     
       <% end %>
 
-        </ul>
+       
 
-	  </div>
-	</nav>
+	
 	
 </header>

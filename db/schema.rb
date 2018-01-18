@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180116163344) do
+ActiveRecord::Schema.define(version: 20180118153225) do
 
   create_table "users", force: :cascade do |t|
     t.string "uid"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20180116163344) do
     t.string "profile_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin"
     t.index ["uid"], name: "index_users_on_uid", unique: true
   end
 
