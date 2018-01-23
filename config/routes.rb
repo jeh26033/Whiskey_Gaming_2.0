@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
 	get '/meta', to: 'static_pages#meta'
 
-	get '/leaderboards', to: 'static_pages#leaderboards'
+	get '/leaderboards', to: 'matches#index'
 
 	get '/members', to: 'users#index'
 
@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 	
 	delete '/logout', to: 'sessions#destroy'
 
+	resources :matches
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

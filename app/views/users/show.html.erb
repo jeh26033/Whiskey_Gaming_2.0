@@ -8,6 +8,7 @@
 			<div class='profile_thumb'>
 				<%= image_tag(@user.avatar_url) %>
 				<span id="user-nickname"><%= @user.nickname %></span>
+				<span id='user-mmr'><%= @matches.solo_competetive_ranked %></span>
 			</div>
 
 			<h4 class="label devborder" >Team</h4>

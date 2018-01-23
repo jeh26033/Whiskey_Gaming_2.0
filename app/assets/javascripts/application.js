@@ -15,3 +15,6 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= link_tree ../images
+//= require stats.js
+//= link_directory ../stylesheets .css

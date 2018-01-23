@@ -80,7 +80,10 @@ GEM
     ffi (1.9.18-x86-mingw32)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    hashable (0.1.2)
     hashie (3.5.7)
+    httparty (0.15.6)
+      multi_xml (>= 0.5.2)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -100,6 +103,7 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.1)
     multi_json (1.13.1)
+    multi_xml (0.6.0)
     nio4r (2.2.0)
     nodejs-rails (0.0.1)
     nokogiri (1.8.1-x86-mingw32)
@@ -113,6 +117,9 @@ GEM
     omniauth-steam (1.0.5)
       multi_json
       omniauth-openid
+    open_dota_api (0.3.2)
+      hashable (~> 0.1.2)
+      httparty (~> 0.15.6)
     pg (0.18.4-x86-mingw32)
     popper_js (1.12.9)
     public_suffix (3.0.1)
@@ -212,11 +219,13 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   faker (= 1.7.3)
+  httparty
   jbuilder (~> 2.5)
   jquery-rails
   nodejs-rails (~> 0.0.1)
   omniauth (~> 1.8, >= 1.8.1)
   omniauth-steam
+  open_dota_api
   pg (= 0.18.4)
   puma (~> 3.7)
   rails (~> 5.1.4)

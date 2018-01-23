@@ -41,7 +41,8 @@ gem 'rollbar'
 gem 'will_paginate', '3.1.6'
 gem 'will_paginate-bootstrap'
 gem 'faker', '1.7.3'
- 
+gem 'open_dota_api'
+gem 'httparty'
 group :development, :test do
    gem 'sqlite3', '1.3.13'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
