@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'users/new'
   
 	resources :users
+
+
 	
 	root 'static_pages#home'
 
@@ -14,13 +16,15 @@ Rails.application.routes.draw do
 
 	get '/teams', to: 'static_pages#teams'
 
-	get '/meta', to: 'static_pages#meta'
+	get '/meta', to: 'matches#meta'
 
-	get '/leaderboards', to: 'matches#index'
+	get '/matches', to: 'matches#index'
+
+	get '/leaderboard', to: 'matches#leaderboard'
 
 	get '/members', to: 'users#index'
 
-	get '/member_page', to: 'users#show'
+	get "users/:id", to: 'users#show', as: 'profile'
 
 	match '/auth/:provider/callback', to: 'sessions#create', via: :all
 	

@@ -7,21 +7,95 @@
 	<!-- main page container stuff below here -->
 
 
-  <div class="player_matches">
-	<div class="container content">
-
-		<table>
-
-			<tr>Solo mmr party</tr>
-			<td><%= @solo_rank %></td>
+ 
+	<div class=" container">
+		<div class="row">
+			<% @the_count = [0,1, 2, 3, 4, 5,6,7,8,9] %>
+			<% @the_count.each do |i| %>
+			<%	puts i %>
 			
 
-			<tr>party mmr</tr>
-			<td><%= @party_rank %></td>
 
-		</table>
+			<% if @isRadiant==true && @radiant_win == true %>
+			<% 		victory = true %>
 
-		<%= @solo_rank %>
-	</div>  	
-</div>
+			<% elsif @isRadiant == false && @radiant_win == false %>
+			<%		victory = true %>
+
+			<% else %>
+			<%		victory = false %>
+			<% end%>
+
+
+
+			<div class="player_matches">
+				<table class="col-md">
+					<tr>
+						<th>Match ID</th>
+						<th>Hero</th>
+						<th>Duration</th>
+						<th>Kills</th>
+						<th>Deaths</th>
+						<th>XPM</th>
+						<th>GPM</th>
+						<th>Hero damage</th>
+						<th>Tower Damage</th>
+						<th>Healing</th>
+						<th>Side</th>
+						<th>Win?</th>
+					</tr>
+
+					<tr>
+						<% playerSlot=@parsed[i]['player_slot'] %>
+
+					
+						<td><%=	@parsed[i]['match_id'] %> </td>
+						<td><%= @parsed[i]['hero_id'] %> </td>
+						<td><%= @parsed[i]['duration'] %> </td>
+						<td><%= @parsed[i]['kills'] %> </td>
+						<td><%= @parsed[i]['deaths'] %></td>
+						<td><%= @parsed[i]['xp_per_min'] %></td>
+						<td><%= @parsed[i]['gold_per_min'] %></td>
+						<td><%= @parsed[i]['hero_damage'] %></td>
+						<td><%= @parsed[i]['tower_damage'] %></td>
+						<td><%= @parsed[i]['hero_healing'] %></td>
+						
+						<% if playerSlot < 5 %>
+				        <%   @isRadiant = true; %>
+				        	<td><%= 'Radiant' %></td>
+				        <%else%> 
+				        <%   @isRadiant = false;%>
+				        	<td><%= 'Dire' %> </td>
+						<%end %>
+
+						<% if @parsed[i]['radiant_win'] == true and @isRadiant== true %>
+						<% 		victory = true %>
+						<% elsif @parsed[i]['radiant_win'] ==true and @isRadiant == false %>
+						<%		victory = false %>
+						<% elsif @parsed[i]['radiant_win']==false and @isRadiant == true %>
+						<%		victory = false %>
+						<% else %>
+						<%		victory = true %>
+						<% end%>
+
+
+
+
+						<% if victory == true %>
+							<td><%= 'VICTORY' %></td>
+						<% else %>
+							<td><%='DEFEAT' %> </td>
+						<% end %>
+
+					</tr>
+				</table>	
+			</div>
+			<% end %>
+<%= @herosparse %>
+		</div>
+	
+
+	</div>  
+
+
 

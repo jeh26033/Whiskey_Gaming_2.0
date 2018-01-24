@@ -15,17 +15,27 @@
  */
 @import "bootstrap";
 @import 'will_paginate-bootstrap'
-nav {
- 
+
+.player_matches{
+
 }
 
+
+
+.container{
+	background-color: lightgrey;
+}
+.container-fluid{
+	background-color: #cc80ff
+;
+}
 .devborder{
 	border: 1px solid black;
 }
 
 
 .content{
-	margin-top: 100px;
+
 }
 
 .label{
@@ -61,3 +71,31 @@ footer{
 	margin-top: 10%;
 }
 
+/*table*/
+
+table{
+	border: 1px solid black;
+	padding: 10%;
+	margin:1%;
+	margin-top: 1%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+tr{
+	
+	padding: 10px;
+}
+
+th{
+	background-color: lightgrey;
+	border-bottom: 10px solid black;
+	padding: 20px;
+
+}
+td{
+	background-color: plum;
+
+	padding:20px;
+	border-right: 4px solid purple;
+}

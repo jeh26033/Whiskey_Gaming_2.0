@@ -8,7 +8,19 @@
 			<div class='profile_thumb'>
 				<%= image_tag(@user.avatar_url) %>
 				<span id="user-nickname"><%= @user.nickname %></span>
-				<span id='user-mmr'><%= @matches.solo_competetive_ranked %></span>
+			<table>
+
+			<tr>
+				<th>Solo MMR | </th> 
+				<th>Party MMR</th> 
+			
+			</tr>
+			<tr>
+				<td> <%=  current_user.solo  %> </td>
+				<td> <%=  current_user.party %> </td>
+			</tr>
+
+		</table>
 			</div>
 
 			<h4 class="label devborder" >Team</h4>
@@ -22,4 +34,6 @@
 			<h3 class="nav-item"><%= link_to 'Log In via Steam', '/auth/steam' %> </h3></h2>
 		<% end %>
 	</div> <!-- profile div -->
+
+	<% puts :solo %>
 </div> <!-- container -->

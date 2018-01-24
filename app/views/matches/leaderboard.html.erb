@@ -1,0 +1,25 @@
+<% provide(:title, "Leadboards")%>
+<div class="container">
+<h1>the whiskey gaming leaderboards</h1>
+
+		<ul class="users-list ">
+		<% if current_user %>
+			<% @users.each do |user|%>
+				<li class="devborder index-profile"> <%= image_tag(user.avatar_url)%> <a href= "/users/ <%= user.id %>"<b> <%= user.nickname
+				 %></b> </a>
+
+				
+					<%= user.solo %> |
+					<%= user.party %>
+				</li>
+			<% end %>
+		</ul>
+		<% else %>
+			<h2>Be sure to log in! </h2>
+			<h3 class="nav-item"><%= link_to 'Log In via Steam', '/auth/steam' %> </h3></h2>
+
+		<% end %>
+
+
+	</div>
+</div>

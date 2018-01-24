@@ -24,7 +24,11 @@
 	      </li>
 
 	      <li class="nav-item">
-	        <a class="nav-link" <%=link_to 'Leaderboards', leaderboards_path %></a>
+	        <a class="nav-link" <%=link_to 'Your Matches', matches_path %></a>
+	      </li>
+
+	      <li class="nav-item">
+	        <a class="nav-link" <%=link_to 'Leaderboards', leaderboard_path %></a>
 	      </li>
 
 	      <li class="nav-item">
@@ -40,8 +44,9 @@
   </div>
 	</nav>
 	      <% if current_user %>
-
- 			<h6>Welcome, <%= current_user.nickname %> | <%= link_to 'Log Out', logout_path, method: :delete %> |
+			<% profile_path(current_user) %>
+		
+ 			<h6>Welcome, <%=link_to current_user.nickname, profile_path(current_user)  %> | <%= link_to 'Log Out', logout_path, method: :delete %> 
  			 </h6>
 	         
 	       
