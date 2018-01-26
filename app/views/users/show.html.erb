@@ -8,7 +8,7 @@
 			<div class='profile_thumb'>
 				<%= image_tag(@user.avatar_url) %>
 				<span id="user-nickname"><%= @user.nickname %></span>
-			<table>
+			<table id="profile_mmr">
 
 			<tr>
 				<th>Solo MMR | </th> 
@@ -16,8 +16,8 @@
 			
 			</tr>
 			<tr>
-				<td> <%=  current_user.solo  %> </td>
-				<td> <%=  current_user.party %> </td>
+				<td> <%=  @user.solo  %> </td>
+				<td> <%=  @user.party %> </td>
 			</tr>
 
 		</table>

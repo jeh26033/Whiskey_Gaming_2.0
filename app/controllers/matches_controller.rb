@@ -2,10 +2,9 @@ class MatchesController < ApplicationController
 before_action :require_signin! 
 require 'httparty'
 require 'json'
+
 	def show 
-
-
-end
+	end
 
 
 
