@@ -16,17 +16,25 @@
 @import "bootstrap";
 @import 'will_paginate-bootstrap'
 
+
+
 .player_matches{
 
 }
+/*matches table styles*/
 
-
+#defeat{color: red;}
+#victory{color: green;}
+#deaths{color: red; font-weight: bold;}
+#kills{color: green; font-weight: bold;}
+#radiant{color: green;}
+#dire{color: red;}
 
 .container{
 	background-color: lightgrey;
 }
 .container-fluid{
-	background-color: #cc80ff
+	background-color: PowderBlue;
 ;
 }
 .devborder{
@@ -74,28 +82,21 @@ footer{
 /*table*/
 
 table{
-	border: 1px solid black;
-	padding: 10%;
-	margin:1%;
-	margin-top: 1%;
-	margin-left: auto;
-	margin-right: auto;
+
 }
 
 tr{
-	
 	padding: 10px;
+	margin-top: 20px;
 }
 
 th{
 	background-color: lightgrey;
 	border-bottom: 10px solid black;
 	padding: 20px;
-
 }
 td{
-	background-color: plum;
-
-	padding:20px;
+	max-width: 200px;
+	padding:30px;
 	border-right: 4px solid purple;
 }

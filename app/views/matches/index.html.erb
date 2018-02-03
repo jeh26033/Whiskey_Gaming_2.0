@@ -1,39 +1,22 @@
 <% provide(:title, "Matches")%>
 
-	
-	
-
-	
 	<!-- main page container stuff below here -->
 
 
- 
 	<div class=" container">
-		<div class="row">
-			<% @the_count = [0,1, 2, 3, 4, 5,6,7,8,9] %>
-			<% @the_count.each do |i| %>
-			<%	puts i %>
-			
+	
+			<!--loads last ten matches -->
+			<% @the_count = [-1,0,1, 2, 3, 4, 5,6,7,8,9] %>
+			<% @the_count.each_with_index do |x, index| %>
 
+			<table class= "table table-responsive row devborder" >
+				
+				<% if index==0 %>
 
-			<% if @isRadiant==true && @radiant_win == true %>
-			<% 		victory = true %>
-
-			<% elsif @isRadiant == false && @radiant_win == false %>
-			<%		victory = true %>
-
-			<% else %>
-			<%		victory = false %>
-			<% end%>
-
-
-
-			<div class="player_matches">
-				<table class="col-md">
+				<thead class="devborder">
 					<tr>
 						<th>Match ID</th>
 						<th>Hero</th>
-						<th>Duration</th>
 						<th>Kills</th>
 						<th>Deaths</th>
 						<th>XPM</th>
@@ -44,55 +27,90 @@
 						<th>Side</th>
 						<th>Win?</th>
 					</tr>
+				</thead>
+		
+				<% else %>
+				
+					<% playerSlot=@parsed[x]['player_slot'] %>
+					<!-- applies the appropriate hero name and picture -->
+					<%h_id = @parsed[x]['hero_id']-2  %> 
 
-					<tr>
-						<% playerSlot=@parsed[i]['player_slot'] %>
+					<% @hero_img ='http://cdn.dota2.com/' + @hero_list[h_id]['icon']%>
+							
+							<tr class="devborder col-md">
+							<td><%=	@parsed[x]['match_id'] %> </td>
+							<td>
+								<%= image_tag(@hero_img)%>
+								<%=	 @hero_list[h_id]['localized_name'] %> 
+							</td>
+							<td id="kills"><%= @parsed[x]['kills'] %> 	   </td>
+							<td id="deaths"><%= @parsed[x]['deaths'] %>    </td>
 
-					
-						<td><%=	@parsed[i]['match_id'] %> </td>
-						<td><%= @parsed[i]['hero_id'] %> </td>
-						<td><%= @parsed[i]['duration'] %> </td>
-						<td><%= @parsed[i]['kills'] %> </td>
-						<td><%= @parsed[i]['deaths'] %></td>
-						<td><%= @parsed[i]['xp_per_min'] %></td>
-						<td><%= @parsed[i]['gold_per_min'] %></td>
-						<td><%= @parsed[i]['hero_damage'] %></td>
-						<td><%= @parsed[i]['tower_damage'] %></td>
-						<td><%= @parsed[i]['hero_healing'] %></td>
-						
-						<% if playerSlot < 5 %>
-				        <%   @isRadiant = true; %>
-				        	<td><%= 'Radiant' %></td>
-				        <%else%> 
-				        <%   @isRadiant = false;%>
-				        	<td><%= 'Dire' %> </td>
-						<%end %>
-
-						<% if @parsed[i]['radiant_win'] == true and @isRadiant== true %>
-						<% 		victory = true %>
-						<% elsif @parsed[i]['radiant_win'] ==true and @isRadiant == false %>
-						<%		victory = false %>
-						<% elsif @parsed[i]['radiant_win']==false and @isRadiant == true %>
-						<%		victory = false %>
-						<% else %>
-						<%		victory = true %>
-						<% end%>
+							
+						<!-- determines if player was radiant or dire -->
+							<% if playerSlot < 5 %>
+					        <%   @isRadiant = true; %>
+					        	<td id="radiant"><%= 'Radiant' %></td>
+					        <%else%> 
+					        <%   @isRadiant = false;%>
+					        	<td id="dire"><%= 'Dire' %> </td>
+							<%end %>
+							<!-- determines winner -->
+							<% if @parsed[x]['radiant_win'] == true and @isRadiant== true %>
+							<% 		victory = true %>
+							<% elsif @parsed[x]['radiant_win'] ==true and @isRadiant == false %>
+							<%		victory = false %>
+							<% elsif @parsed[x]['radiant_win']==false and @isRadiant == true %>
+							<%		victory = false %>
+							<% else %>
+							<%		victory = true %>
+							<% end%>
+							<!-- displays the victory or defeat condition -->
+							<% if victory == true %>
+								<td id="victory"><%= 'VICTORY' %></td>
+							<% else %>
+								<td id="defeat"><%='DEFEAT' %> </td>
+							<% end %>
 
 
+							<div id="accordion">
+							  <div class="card">
+							    <div class="card-header" id="headingOne">
+							      <h5 class="mb-0">
+							        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+							         <p>Match <%=@parsed[x]['match_id'] %>  </p>
 
 
-						<% if victory == true %>
-							<td><%= 'VICTORY' %></td>
-						<% else %>
-							<td><%='DEFEAT' %> </td>
-						<% end %>
+							        </button>
+							      </h5>
+							    </div>
 
-					</tr>
-				</table>	
-			</div>
-			<% end %>
-<%= @herosparse %>
-		</div>
+							    <div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+							      <div class="card-body">
+							      	
+							      		<tr>
+											<td><%= @parsed[x]['xp_per_min'] %> 		   </td>
+											<td><%= @parsed[x]['gold_per_min'] %> 		   </td>
+											<td><%= @parsed[x]['hero_damage'] %>		   </td>
+											<td><%= @parsed[x]['tower_damage'] %>		   </td>
+											<td><%= @parsed[x]['hero_healing'] %>		   </td>
+										</tr>
+							      </div>
+							    </div>
+							  </div>
+
+							  
+
+							    </div>
+							  </div>
+							</div>
+						</tr>
+			
+	
+					<%end%>
+				<% end %>
+			</table>
+			
 	
 
 	</div>  
